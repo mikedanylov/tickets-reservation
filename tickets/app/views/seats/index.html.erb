@@ -1,13 +1,31 @@
 <h1>Paikat</h1>
 
-<% @seats_arr.each do |row| %>
-  <% row.each do |seat| %>
-    <% if seat.status == 'available' %>
-      <%= image_tag("free.png") %>
-    <% else %>
-      <%= image_tag("reserved.png") %>
+<table>
+  <thead>
+    <tr>
+      <th>Riivi</th>
+      <th>Paikka</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seats_arr.each do |row| %>
+      <tr>
+        <td><h2><%= row[0].row %></h2></td>
+        <td>
+          <% row.each do |seat| %>
+            <div class="seat-img">
+              <span><%= seat.number %></span>
+              <% if seat.status == 'available' %>
+                <%= image_tag("free.png") %>
+              <% else %>
+                <%= image_tag("reserved.png") %>
+              <% end %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+      <br>  
     <% end %>
-    <%= seat.number %>
-  <% end %>
-  <br>  
-<% end %>
+  </tbody>
+</table>
