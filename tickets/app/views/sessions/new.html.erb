@@ -1,17 +1,16 @@
-<h1>Kirjaudu Sisään</h1>
-
-<%= form_for(:user, url: sessions_path) do |form| %>
-  <div class="field">
-    <%= form.label :email %>
+<div class="container container-login">
+  <h1>Kirjaudu sisään</h1>
+  <%= form_for(:user, url: sessions_path) do |form| %>
+    <div class="form-group col-xs-offset-2 col-xs-8">
+      <%= form.email_field :email, class: "form-control", placeholder: "Sähköposti" %>
+    </div>
     <br>
-    <%= form.email_field :email %>
-  </div>
-  <div class="field">
-    <%= form.label :password %>
+    <div class="form-group col-xs-offset-2 col-xs-8">
+      <%= form.password_field :password, class: "form-control", placeholder: "Salasana" %>
+    </div>
     <br>
-    <%= form.password_field :password %>
-  </div>
-  <div class="actions">
-    <%= form.submit "Kirjaudu Sisään" %>
-  </div>
-<% end %>
+    <div class="form-group col-xs-12">
+      <%= form.submit "Kirjaudu Sisään", class: "btn btn-lg btn-primary" %>
+    </div>
+  <% end %>
+</div>
