@@ -1,31 +1,33 @@
 <h1>Paikat</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Riivi</th>
-      <th>Paikka</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @seats_arr.each do |row| %>
+<div class="table-responsive">
+  <table class="table-hover table-striped">
+    <thead>
       <tr>
-        <td><h2><%= row[0].row %></h2></td>
-        <td>
-          <% row.each do |seat| %>
-            <div class="seat-img">
-              <span><%= seat.number %></span>
-              <% if seat.status == 'available' %>
-                <%= image_tag("free.png") %>
-              <% else %>
-                <%= image_tag("reserved.png") %>
-              <% end %>
-            </div>
-          <% end %>
-        </td>
+        <th><h3>Riivi</h3></th>
+        <th><h3>Paikka</h3></th>
       </tr>
-      <br>  
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @seats_arr.each do |row| %>
+        <tr>
+          <td><h4><%= row[0].row %></h4></td>
+          <td>
+            <% row.each do |seat| %>
+              <div class="seat-img">
+                <span><%= seat.number %></span>
+                <% if seat.status == 'available' %>
+                  <%= image_tag("free.png") %>
+                <% else %>
+                  <%= image_tag("reserved.png") %>
+                <% end %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+        <br>  
+      <% end %>
+    </tbody>
+  </table>
+</div>
