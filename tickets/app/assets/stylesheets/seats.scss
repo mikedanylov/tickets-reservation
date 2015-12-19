@@ -2,20 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.seat-img { 
-   position: relative;
-   display: inline;
-   width: 100%;
-   text-align: center;
+.container * {
+  text-align: center;
 
-  span { 
-   position: absolute;
-   display: inline-block;
-   white-space: nowrap;
-   font-weight: bold;
-   margin-top: 12px;
-   left: -2px; 
-   width: 100%; 
-   color: Indigo;
+  .seat-img { 
+     position: relative;
+     display: inline;
+     width: 100%;
+
+    span { 
+     position: absolute;
+     display: inline;
+     white-space: nowrap;
+     font-weight: bold;
+     margin-top: 27px;
+     margin-left: -1px;
+     width: 100%; 
+     color: white;
+    }
   }
 }

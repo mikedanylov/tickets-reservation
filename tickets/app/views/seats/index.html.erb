@@ -1,7 +1,7 @@
 <h1>Paikat</h1>
 
-<div class="table-responsive">
-  <table class="table-hover table-striped">
+<div class="container">
+  <table class="table table-hover table-striped">
     <thead>
       <tr>
         <th><h3>Riivi</h3></th>
@@ -12,12 +12,12 @@
     <tbody>
       <% @seats_arr.each do |row| %>
         <tr>
-          <td><h4><%= row[0].row %></h4></td>
+          <td><h3><%= row[0].row %></h3></td>
           <td>
             <% row.each do |seat| %>
               <div class="seat-img">
-                <span><%= seat.number %></span>
                 <% if seat.status == 'available' %>
+                  <span><%= seat.number %></span>
                   <%= image_tag("free.png") %>
                 <% else %>
                   <%= image_tag("reserved.png") %>
