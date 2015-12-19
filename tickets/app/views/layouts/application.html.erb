@@ -11,7 +11,7 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="">Sudarushka</a>
+        <a class="navbar-brand" href="">Kotisivu</a>
       </div>
       <div>
         <ul class="nav navbar-nav navbar-right">
@@ -30,17 +30,19 @@
           <h4 class="modal-title">Kirjaudu sisään</h4>
         </div>
         <div class="modal-body">
-          <form class="form-inline" role="form">
+          <form method="post" action="/sessions" class="form-inline" role="form">
             <div class="form-group">
-              <label class="sr-only" for="email">Email</label>
-              <input type="email" id="email" class="form-control input-sm" placeholder="email">
+              <label class="sr-only" for="user_email">Sähköposti</label>
+              <input type="email" id="user_email" name="user[email]" class="form-control input-sm" placeholder="sähköposti">
             </div>
             <div class="form-group">
-              <label class="sr-only" for="password">Salasana</label>
-              <input type="password" id="password" class="form-control input-sm" placeholder="salasana">
+              <label class="sr-only" for="user_password">Salasana</label>
+              <input type="password" id="user_password" name="user[password]" class="form-control input-sm" placeholder="salasana">
             </div>
-            <button type="submit" class="btn btn-info btn-sm">Kirjaudu sisään</button>
-            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Peruuttaa</button>
+            <div class="form-group actions">
+              <button type="submit" class="btn btn-info btn-sm">Kirjaudu sisään</button>
+              <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Peruuttaa</button>
+            </div>
           </form>
         </div>
       </div>
