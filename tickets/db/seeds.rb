@@ -6,10 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+stat = ['available', 'reserved']
 Seat.destroy_all
 
 for row in 1..5
   for seat in 1..5
-    Seat.create!(row: row, number: seat, status: 'available', price: 10, reserv_date: Date.today)
+    Seat.create!(row: row, number: seat, status: stat.sample, price: 10, reserv_date: Date.today)
   end
 end
