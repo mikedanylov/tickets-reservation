@@ -2,18 +2,95 @@
 $(function() {
 
   var prev_src;
-  var prev_span;
-
+  var img_class;
+  var seats_arr = [];
+  
+  // seat icon mouse hover effect
   $('.seat-img')
     .mouseover(function() {
       prev_src =  $(this).children('img').attr("src");
-      console.log(prev_src);
       $(this).children('span').hide();
       $(this).children('img').attr("src", "<%= asset_path('selected.png') %>");
     })
     .mouseout(function() {
-      console.log(prev_span);
-      $(this).children('span').show();
+      if (!$(this).children('img').hasClass('clicked')) {
+        $(this).children('span').show();
+      }
       $(this).children('img').attr("src", prev_src);
     });
+
+  // seat icon click event
+  $('.seat-img')
+    .click(function() {
+      
+      var img = $(this).children('img');
+      var span = $(this).children('span');
+      var status = '';
+      
+      if (!img.hasClass('clicked')) {
+        
+        if (img.hasClass('available')) {
+          img.attr("src", "<%= asset_path('selected.png') %>");
+          prev_src = "<%= asset_path('selected.png') %>";
+          status = 'reserved';
+          span.hide();
+        } else { // when img_class === 'reserved'
+          img.attr("src", "<%= asset_path('selected.png') %>");
+          prev_src = "<%= asset_path('selected.png') %>";
+          status = 'available';
+        }
+        img.addClass('clicked');
+        
+        // check if already in seats_arr
+        if (!is_added(img)) {
+          seats_arr.push({
+            row: img.attr('id').split('-')[1],
+            number: img.attr('id').split('-')[2],
+            status: status
+          });  
+        }
+
+      } else { // if clicked once already
+        
+        img.removeClass('clicked');
+        
+        // remove from seats_arr as well
+        remove_seat(img);
+
+        if (img.hasClass('available')) {
+          span.show();
+          img.attr("src", "<%= asset_path('free.png') %>");
+          prev_src = "<%= asset_path('free.png') %>";
+        } else {
+          img.attr("src", "<%= asset_path('reserved.png') %>");
+          prev_src = "<%= asset_path('reserved.png') %>";
+        }
+      }
+      console.log(seats_arr);
+    });
+
+  function is_added(img) {
+    var row = img.attr('id').split('-')[1];
+    var number = img.attr('id').split('-')[2];
+    
+    for (var i = 0; i < seats_arr.length; i++) {
+      if (seats_arr[i].row == row && seats_arr[i].number == number) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function remove_seat(img) {
+    var row = img.attr('id').split('-')[1];
+    var number = img.attr('id').split('-')[2];
+    var item_to_remove;
+    for (var i = 0; i < seats_arr.length; i++) {
+      if (seats_arr[i].row == row && seats_arr[i].number == number) {
+        item_to_remove = i;
+      }
+    }
+    seats_arr.splice(item_to_remove, 1);
+  }
+
 });
