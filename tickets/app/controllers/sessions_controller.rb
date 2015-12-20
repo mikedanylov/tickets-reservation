@@ -10,8 +10,6 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash.notice = "Logged in successfully!"
       if user.is_admin
-        redirect_to admin_path
-      else
         redirect_to root_path
       end
     else

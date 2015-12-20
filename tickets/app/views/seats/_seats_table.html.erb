@@ -1,0 +1,29 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><h3>Riivi</h3></th>
+      <th><h3>Paikka</h3></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seats_arr.each do |row| %>
+      <tr>
+        <td><h3><%= row[0].row %></h3></td>
+        <td>
+          <% row.each do |seat| %>
+            <div class="seat-img">
+              <% if seat.status == 'available' %>
+                <span><%= seat.number %></span>
+                <%= image_tag("free.png") %>
+              <% else %>
+                <%= image_tag("reserved.png") %>
+              <% end %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+      <br>  
+    <% end %>
+  </tbody>
+</table>
