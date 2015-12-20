@@ -15,9 +15,9 @@
             <div class="seat-img">
               <% if seat.status == 'available' %>
                 <span><%= seat.number %></span>
-                <%= image_tag("free.png") %>
+                <%= image_tag("free.png", id: "img-#{seat.row}-#{seat.number}", class: "available") %>
               <% else %>
-                <%= image_tag("reserved.png") %>
+                <%= image_tag("reserved.png", id: "img-#{seat.row}-#{seat.number}", class: "reserved") %>
               <% end %>
             </div>
           <% end %>
