@@ -9,8 +9,8 @@
   <tbody>
     <% @seats_arr.each do |row| %>
       <tr>
-        <td><h3><%= row[0].row %></h3></td>
-        <td>
+        <td class="table-cell"><h3><%= row[0].row %></h3></td>
+        <td class="table-cell">
           <% row.each do |seat| %>
             <div class="seat-img">
               <% if seat.status == 'available' %>

@@ -5,6 +5,10 @@
 .container-center * {
   text-align: center;
 
+  .table-cell {
+    vertical-align: middle;
+  }
+
   div.seat-img { 
     position: relative;
     display: inline-block;
