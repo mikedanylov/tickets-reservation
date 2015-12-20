@@ -1,0 +1,19 @@
+
+$(function() {
+
+  var prev_src;
+  var prev_span;
+
+  $('.seat-img')
+    .mouseover(function() {
+      prev_src =  $(this).children('img').attr("src");
+      console.log(prev_src);
+      $(this).children('span').hide();
+      $(this).children('img').attr("src", "<%= asset_path('selected.png') %>");
+    })
+    .mouseout(function() {
+      console.log(prev_span);
+      $(this).children('span').show();
+      $(this).children('img').attr("src", prev_src);
+    });
+});
