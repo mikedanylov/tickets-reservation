@@ -44,10 +44,10 @@ $(function() {
         // check if already in seats_arr
         if (!is_added(img)) {
           seats_arr.push({
-            row: img.attr('id').split('-')[1],
-            number: img.attr('id').split('-')[2],
-            status: status
-          });  
+            "row": img.attr('id').split('-')[1],
+            "number": img.attr('id').split('-')[2],
+            "status": status
+          });
         }
 
       } else { // if clicked once already
@@ -92,5 +92,25 @@ $(function() {
     }
     seats_arr.splice(item_to_remove, 1);
   }
+
+  function get_seats_arr() {
+    return seats_arr;
+  }
+
+  function seats_arr_to_string() {
+    var json_str = '';
+    for (var i = 0; i < seats_arr.length; i++) {
+      json_str += JSON.stringify(seats_arr[i]) + ',';
+    }
+    json_str.slice(0, -2);
+    console.log(json_str);
+    return json_str;
+  }
+
+  function append_params() {
+    $('input[name=seats_to_update]').attr('value', seats_arr_to_string);
+  }
+
+  $('#btn-update').click(append_params);
 
 });

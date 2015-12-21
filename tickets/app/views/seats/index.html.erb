@@ -1,7 +1,20 @@
 <div class="container container-center">
+
+  <%= render partial: "seats_table" %>
+
   <% if logged_in? && current_user.is_admin %>
     <!-- load javascript for changing seats status -->
-    <%= javascript_include_tag 'update_status.js' %>
+    <!<%= javascript_include_tag 'update_status.js' %>
+    
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-4">
+        <%= button_to "Päivittää", update_path, method: 'post', class: 'btn btn-block btn-primary', id: 'btn-update', params: { seats_to_update: "get_seats_arr()" } %>
+      </div>
+      <div class="col-xs-4">
+        <%= button_to "Peruuttaa", root_path, method: 'get', class: 'btn btn-block btn-default' %>
+      </div>
+    </div>
+    <br>
+
   <% end %>
-  <%= render partial: "seats_table" %>
 </div>
