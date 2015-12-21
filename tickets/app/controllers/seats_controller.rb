@@ -8,6 +8,7 @@ class SeatsController < ApplicationController
     end
   end
 
+  # get input from form filled by admin and make changes to db
   def update
     json_obj = JSON.parse(params[:seats_to_update])
     json_obj.each do |obj|
@@ -15,7 +16,6 @@ class SeatsController < ApplicationController
       seat_to_update.status = obj['status']
       seat_to_update.save!
     end
-    # get input from form filled by admin and make changes to db
     flash.notice = "Seats status is updated!"
     redirect_to root_path
   end
