@@ -102,7 +102,7 @@ $(function() {
     for (var i = 0; i < seats_arr.length; i++) {
       json_str += JSON.stringify(seats_arr[i]) + ',';
     }
-    json_str.slice(0, -2);
+    json_str = '[' + json_str.slice(0, -1) + ']';
     console.log(json_str);
     return json_str;
   }
