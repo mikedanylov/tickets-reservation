@@ -4,11 +4,8 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(document).ready(function(){
-
-  // Login icon toggles modal
-  $('#login').click(function () {
-    $('#loginModal').modal('show');
+$(function() {
+  $(".alert").fadeTo(3000, 500).fadeOut('slow', function(){
+      $(".alert").alert('close');
   });
-  
 });

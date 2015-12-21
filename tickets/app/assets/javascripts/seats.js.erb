@@ -2,7 +2,6 @@
 $(function() {
 
   var prev_src;
-  var img_class;
   var seats_arr = [];
   
   // seat icon mouse hover effect
@@ -34,7 +33,7 @@ $(function() {
           prev_src = "<%= asset_path('selected.png') %>";
           status = 'reserved';
           span.hide();
-        } else { // when img_class === 'reserved'
+        } else { // when class === 'reserved'
           img.attr("src", "<%= asset_path('selected.png') %>");
           prev_src = "<%= asset_path('selected.png') %>";
           status = 'available';
