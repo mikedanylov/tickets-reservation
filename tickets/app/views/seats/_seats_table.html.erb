@@ -21,6 +21,9 @@
                 <%= image_tag("reserved.png", id: "img-#{seat.row}-#{seat.number}", class: "reserved") %>
               <% end %>
             </div>
+            <% if (seat.row == 10 || seat.row == 11) && seat.number == 4 %>
+              <div class="separator"></div>
+            <% end %>
           <% end %>
         </td>
         <td class="table-cell"><h3><%= row[0].row %></h3></td>
