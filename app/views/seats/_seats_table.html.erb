@@ -24,14 +24,18 @@
         <td class="table-cell"><h3><%= row[0].row %></h3></td>
         <td class="table-cell">
           <% row.each do |seat| %>
-            <div class="seat-img">
-              <% if seat.status == 'available' %>
-                <span><%= seat.number %></span>
-                <%= image_tag("free.png", id: "img-#{seat.row}-#{seat.number}", class: "available") %>
-              <% else %>
-                <%= image_tag("reserved.png", id: "img-#{seat.row}-#{seat.number}", class: "reserved") %>
-              <% end %>
-            </div>
+            <% if logged_in? && current_user.is_admin %>
+              <div class="seat-img">
+            <% else %>
+              <div class="not-loggedin">
+            <% end %>
+                <% if seat.status == 'available' %>
+                  <span><%= seat.number %></span>
+                  <%= image_tag("free.png", id: "img-#{seat.row}-#{seat.number}", class: "available") %>
+                <% else %>
+                  <%= image_tag("reserved.png", id: "img-#{seat.row}-#{seat.number}", class: "reserved") %>
+                <% end %>
+              </div>
             <% if (seat.row == 10 || seat.row == 11) && seat.number == 4 %>
               <div class="separator"></div>
             <% end %>

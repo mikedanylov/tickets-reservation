@@ -12,8 +12,33 @@
   h3 {
     margin-top: 10px;
   }
-
+  
   div.seat-img { 
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    align-items: center;
+
+    img {
+      display: inline-block;
+      width: auto;
+      height: 40px;
+      z-index: -1;
+      position: relative;
+    }
+
+    span {
+      position: absolute;
+      width: 25px;
+      margin-top: 15px;
+      z-index: 1;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  div.not-loggedin { 
     position: relative;
     display: inline-block;
     z-index: 10;
