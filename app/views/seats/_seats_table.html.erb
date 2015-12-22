@@ -39,6 +39,9 @@
             <% if (seat.row == 10 || seat.row == 11) && seat.number == 4 %>
               <div class="separator"></div>
             <% end %>
+            <% if seat.row == 9 && (seat.number == 4 || seat.number == 13) %>
+              <div class="separator-sm"></div>
+            <% end %>
           <% end %>
           <% if row[0].row == 9 %>
             <br>
@@ -47,6 +50,8 @@
               <h3 style="margin: 20px 50px 10px 50px; display: inline-block;">parveke</h3>
               <span class="glyphicon glyphicon-arrow-up"></span>
             </div>
+          <% elsif row[0].row == 4 %>
+            <br><div style="height: 50px;"></div>
           <% end %>  
         </td>
         <td class="table-cell"><h3><%= row[0].row %></h3></td>
