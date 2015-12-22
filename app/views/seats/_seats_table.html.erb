@@ -36,10 +36,10 @@
                   <%= image_tag("reserved.png", id: "img-#{seat.row}-#{seat.number}", class: "reserved") %>
                 <% end %>
               </div>
-            <% if (seat.row == 10 || seat.row == 11) && seat.number == 4 %>
+            <% if (seat.row == 10 || seat.row == 11) && seat.number == 5 %>
               <div class="separator"></div>
             <% end %>
-            <% if seat.row == 9 && (seat.number == 4 || seat.number == 13) %>
+            <% if seat.row == 9 && (seat.number == 5 || seat.number == 14) %>
               <div class="separator-sm"></div>
             <% end %>
           <% end %>
