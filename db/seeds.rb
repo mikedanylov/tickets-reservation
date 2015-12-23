@@ -13,7 +13,7 @@ for row in 1..11
     for seat in 1..18
       Seat.create!(row: row, number: seat, status: stat.sample, price: 10)
     end
-  when 4, 5, 5, 7
+  when 4, 5, 6, 7
     for seat in 1..14
       Seat.create!(row: row, number: seat, status: stat.sample, price: 10)
     end
