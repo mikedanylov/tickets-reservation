@@ -1,16 +1,16 @@
-<div class="container container-center">
-  
-  <div style="margin-top: 200px;">
-    <h3>LIPPUJEN VARAAMINEN
-    <span class="label label-primary" style="font-size: 110%;">0465734026</span></h3>
-  </div>
 
-  <%= render partial: "seats_table" %>
+
+<!-- <div style="margin-top: 200px;">
+  <h3>LIPPUJEN VARAAMINEN
+  <span class="label label-primary" style="font-size: 110%;">0465734026</span></h3>
+</div> -->
+
+<!-- <div class="container container-center"> -->
+
+<%= render partial: "seats_table" %>
 
   <% if logged_in? && current_user.is_admin %>
-    <!-- load javascript for changing seats status -->
-    <!<%= javascript_include_tag 'update_status.js' %>
-    
+
     <div class="row">
       <div class="col-xs-offset-2 col-xs-4">
         <%= button_to "Päivittää", update_path, method: 'post', class: 'btn btn-block btn-primary', id: 'btn-update', params: { seats_to_update: "get_seats_arr()" } %>
@@ -22,4 +22,5 @@
     <br>
 
   <% end %>
-</div>
+
+<!-- </div> -->

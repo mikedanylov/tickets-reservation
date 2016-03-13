@@ -4,73 +4,76 @@
 
 .container-center * {
   text-align: center;
+}
 
-  .table-cell {
-    vertical-align: middle;
-  }
-  
-  h3 {
-    margin-top: 10px;
-  }
-  
-  div.seat-img { 
+.table-cell {
+  vertical-align: middle;
+}
+
+table {
+  margin-top: -190px;
+}
+
+h3 {
+  margin-top: 10px;
+}
+
+div.seat-img {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+  align-items: center;
+
+  img {
+    display: inline-block;
+    width: auto;
+    height: 40px;
+    z-index: -1;
     position: relative;
-    display: inline-block;
-    z-index: 10;
-    align-items: center;
-
-    img {
-      display: inline-block;
-      width: auto;
-      height: 40px;
-      z-index: -1;
-      position: relative;
-    }
-
-    span {
-      position: absolute;
-      width: 25px;
-      margin-top: 15px;
-      z-index: 1;
-      text-align: center;
-      color: white;
-      font-weight: bold;
-    }
   }
 
-  div.not-loggedin { 
-    position: relative;
-    display: inline-block;
-    z-index: 10;
-    align-items: center;
-
-    img {
-      display: inline-block;
-      width: auto;
-      height: 40px;
-      z-index: -1;
-      position: relative;
-    }
-
-    span {
-      position: absolute;
-      width: 25px;
-      margin-top: 15px;
-      z-index: 1;
-      text-align: center;
-      color: white;
-      font-weight: bold;
-    }
-  }
-
-  div.separator {
-    display: inline-block;
-    width: 325px;
-  }
-
-  div.separator-sm {
-    display: inline-block;
-    width: 30px;
+  span {
+    position: absolute;
+    width: 25px;
+    margin-top: 15px;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-weight: bold;
   }
 }
 
+div.not-loggedin {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+  align-items: center;
+
+  img {
+    display: inline-block;
+    width: auto;
+    height: 40px;
+    z-index: -1;
+    position: relative;
+  }
+
+  span {
+    position: absolute;
+    width: 25px;
+    margin-top: 15px;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+div.separator {
+  display: inline-block;
+  width: 325px;
+}
+
+div.separator-sm {
+  display: inline-block;
+  width: 30px;
+}

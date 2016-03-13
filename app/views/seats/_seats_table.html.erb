@@ -1,78 +1,86 @@
-<div class="seats-legend">
-  <% if logged_in? && current_user.is_admin %>
-    <%= image_tag("free.png", style: "width: auto; height: 40px;") %>
-      <% count_available = 0; sum_available = 0 %>
-      <% count_reserved = 0; sum_reserved = 0 %>
-      <% @seats_arr.each do |row| %>
-        <% row.each do |seat| %>
-          <% if seat.status == 'available' %>
-            <% count_available += 1 %>
-            <% sum_available += seat.price %>
-          <% else %>
-            <% count_reserved += 1 %>
-            <% sum_reserved += seat.price %>
-          <% end %>
-        <% end %>
-      <% end %>
-       <%= count_available %>, <%= sum_available %>€
-    <%= image_tag("reserved.png", style: "width: auto; height: 40px;") %>
-      <%= count_reserved %>, <%= sum_reserved %>€
-  <% else %>
-    <%= image_tag("free.png", style: "width: auto; height: 40px;") %>
-     - Vapaa paikka
-    <%= image_tag("reserved.png", style: "width: auto; height: 40px;") %>
-     - Myyty tai varattu paikka
-  <% end %>
+<div class="col-xs-12">
+  <div class="bg"></div>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th><h3>Riivi</h3></th>
-      <th><h3>Paikka</h3></th>
-      <th><h3>Riivi</h3></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @seats_arr.each do |row| %>
-      <tr>
-        <td class="table-cell"><h3><%= row[0].row %></h3></td>
-        <td class="table-cell">
+<div class="col-xs-12">
+  <div class="seats-legend">
+    <% if logged_in? && current_user.is_admin %>
+      <%= image_tag("free.png", style: "width: auto; height: 40px;") %>
+        <% count_available = 0; sum_available = 0 %>
+        <% count_reserved = 0; sum_reserved = 0 %>
+        <% @seats_arr.each do |row| %>
           <% row.each do |seat| %>
-            <% if logged_in? && current_user.is_admin %>
-              <div class="seat-img">
+            <% if seat.status == 'available' %>
+              <% count_available += 1 %>
+              <% sum_available += seat.price %>
             <% else %>
-              <div class="not-loggedin">
-            <% end %>
-                <% if seat.status == 'available' %>
-                  <span><%= seat.number %></span>
-                  <%= image_tag("free.png", id: "img-#{seat.row}-#{seat.number}", class: "available") %>
-                <% else %>
-                  <%= image_tag("reserved.png", id: "img-#{seat.row}-#{seat.number}", class: "reserved") %>
-                <% end %>
-              </div>
-            <% if (seat.row == 10 || seat.row == 11) && seat.number == 5 %>
-              <div class="separator"></div>
-            <% end %>
-            <% if seat.row == 9 && (seat.number == 5 || seat.number == 14) %>
-              <div class="separator-sm"></div>
+              <% count_reserved += 1 %>
+              <% sum_reserved += seat.price %>
             <% end %>
           <% end %>
-          <% if row[0].row == 9 %>
-            <br>
-            <div>
-              <span class="glyphicon glyphicon-arrow-up"></span>
-              <h3 style="margin: 20px 50px 10px 50px; display: inline-block;">parveke</h3>
-              <span class="glyphicon glyphicon-arrow-up"></span>
-            </div>
-          <% elsif row[0].row == 4 %>
-            <br><div style="height: 50px;"></div>
-          <% end %>
-        </td>
-        <td class="table-cell"><h3><%= row[0].row %></h3></td>
-      </tr>
-      <br>
+        <% end %>
+         <%= count_available %>, <%= sum_available %>€
+      <%= image_tag("reserved.png", style: "width: auto; height: 40px;") %>
+        <%= count_reserved %>, <%= sum_reserved %>€
+    <% else %>
+      <%= image_tag("free.png", style: "width: auto; height: 40px;") %>
+       - Vapaa paikka
+      <%= image_tag("reserved.png", style: "width: auto; height: 40px;") %>
+       - Myyty tai varattu paikka
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
+<div class="col-xs-12">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><h3>Riivi</h3></th>
+        <th><h3>Paikka</h3></th>
+        <th><h3>Riivi</h3></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @seats_arr.each do |row| %>
+        <tr>
+          <td class="table-cell"><h3><%= row[0].row %></h3></td>
+          <td class="table-cell">
+            <% row.each do |seat| %>
+              <% if logged_in? && current_user.is_admin %>
+                <div class="seat-img">
+              <% else %>
+                <div class="not-loggedin">
+              <% end %>
+                  <% if seat.status == 'available' %>
+                    <span><%= seat.number %></span>
+                    <%= image_tag("free.png", id: "img-#{seat.row}-#{seat.number}", class: "available") %>
+                  <% else %>
+                    <%= image_tag("reserved.png", id: "img-#{seat.row}-#{seat.number}", class: "reserved") %>
+                  <% end %>
+                </div>
+              <% if (seat.row == 10 || seat.row == 11) && seat.number == 5 %>
+                <div class="separator"></div>
+              <% end %>
+              <% if seat.row == 9 && (seat.number == 5 || seat.number == 14) %>
+                <div class="separator-sm"></div>
+              <% end %>
+            <% end %>
+            <% if row[0].row == 9 %>
+              <br>
+              <div>
+                <span class="glyphicon glyphicon-arrow-up"></span>
+                <h3 style="margin: 20px 50px 10px 50px; display: inline-block;">parveke</h3>
+                <span class="glyphicon glyphicon-arrow-up"></span>
+              </div>
+            <% elsif row[0].row == 4 %>
+              <br><div style="height: 50px;"></div>
+            <% end %>
+          </td>
+          <td class="table-cell"><h3><%= row[0].row %></h3></td>
+        </tr>
+        <br>
+      <% end %>
+    </tbody>
+  </table>
+</div>
