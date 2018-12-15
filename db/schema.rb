@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2015_12_19_164849) do
 
-  create_table "seats", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "seats", id: :serial, force: :cascade do |t|
     t.integer "number"
     t.integer "row"
     t.string "status"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 2015_12_19_164849) do
     t.index ["user_id"], name: "index_seats_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.boolean "is_admin"
@@ -32,4 +35,5 @@ ActiveRecord::Schema.define(version: 2015_12_19_164849) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "seats", "users"
 end
