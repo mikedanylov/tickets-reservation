@@ -4,7 +4,7 @@
       <%= image_tag("free.png", style: "width: auto; height: 40px;") %>
         <% count_available = 0; sum_available = 0 %>
         <% count_reserved = 0; sum_reserved = 0 %>
-        <% @seats_arr.each do |row| %>
+        <% @seats.each do |row| %>
           <% row.each do |seat| %>
             <% if seat.status == 'available' %>
               <% count_available += 1 %>
@@ -38,7 +38,7 @@
     </thead>
 
     <tbody>
-      <% @seats_arr.each do |row| %>
+      <% @seats.each do |row| %>
         <tr>
           <td class="table-cell"><h3><%= row[0].row %></h3></td>
           <td class="table-cell">

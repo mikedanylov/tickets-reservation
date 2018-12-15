@@ -24,7 +24,9 @@ for row in 1..11
   end
 end
 
-admin = User.create!(email: ENV["ADMIN_EMAIL"], password: ENV["ADMIN_PWD"], is_admin: true)
+admin = User.create!(email: ENV["ADMIN_EMAIL"],
+                     password: ENV["ADMIN_PWD"],
+                     is_admin: true)
 
 Seat.all.each do |seat|
   seat.user = admin
