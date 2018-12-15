@@ -49,3 +49,5 @@ end
 
 
 gem "nokogiri", "~> 1.8"
+
+gem "mini_portile2", "~> 2.4"
