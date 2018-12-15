@@ -172,6 +172,7 @@ DEPENDENCIES
   byebug
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri (~> 1.8)
   pg
   rails (>= 4.2.4)
   rails_12factor
