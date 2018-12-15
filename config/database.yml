@@ -15,6 +15,6 @@ production:
   adapter: postgresql
   encoding: unicode
   database: <%= ENV['DATABASE_URL'] %>
-#  pool: 5
-#  username: <%= ENV['RAILS_PG_HOST'] %>
-#  password: <%= ENV['RAILS_PG_HOST'] %>
+  pool: 5
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
